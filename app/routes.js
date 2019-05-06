@@ -1,24 +1,6 @@
 module.exports = function(app, passport) {
 
-// normal routes ===============================================================
 
-    // show the home page (will also have our login links)
-    app.get('/', function(req, res) {
-        res.render('index.hbs');
-    });
-
-    // PROFILE SECTION =========================
-    app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.hbs', {
-            user : req.user
-        });
-    });
-
-    // LOGOUT ==============================
-    app.get('/logout', function(req, res) {
-        req.logout();
-        res.redirect('/');
-    });
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================

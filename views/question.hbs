@@ -2,7 +2,7 @@
   <h1>What kind of car suits you best?</h1>
   <p>Take this questionnaire to find out!</p>
   
-  <form id="quiz">
+  <form id="quiz" action="saveMyMoFoQuiz" method="POST">
     <!-- Question 1 -->
     <h2>Where do you enjoy driving the most?</h2>
     <!-- Here are the choices for the first question. Each input tag must have the same name. For this question, the name is q1. -->
@@ -77,7 +77,7 @@
     </label><br />
     
     <button type="submit" id="submit" onclick="tabulateAnswers()">Submit Your Answers</button>
-  <button type="reset" id="reset" onclick="resetAnswer()">Reset</button>
+    <button type="reset" id="reset" onclick="resetAnswer()">Reset</button>
   </form>
   
   
