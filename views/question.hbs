@@ -1,0 +1,85 @@
+<div id="wrapper">
+  <h1>What kind of car suits you best?</h1>
+  <p>Take this questionnaire to find out!</p>
+  
+  <form id="quiz">
+    <!-- Question 1 -->
+    <h2>Where do you enjoy driving the most?</h2>
+    <!-- Here are the choices for the first question. Each input tag must have the same name. For this question, the name is q1. -->
+    <!-- The value is which answer the choice corresponds to. -->
+    <label><input type="radio" name="q1" value="c1">
+      "Bumpy offroad"
+    </label><br />
+    <label><input type="radio" name="q1" value="c2">
+      "Smoothly paved streets"
+    </label><br />
+
+    <!-- Question 2 -->
+    <h2>What's more important to you?</h2>
+    <!-- Here are the choices for the second question. Notice how each input tag has the same name (q2), but a different name than the previous question. -->
+    <label><input type="radio" name="q2" value="c1">
+      "MPG (Miles Per Gallon)"
+    </label><br />
+    <label><input type="radio" name="q2" value="c2">
+      "Horsepower (Smiles Per Gallon)"
+    </label><br />
+    
+    <!-- Question 3 -->
+    <h2>How many passengers are typically in your car?</h2>
+    <!-- Choices for the third question -->
+    <label><input type="radio" name="q3" value="c1">
+      "Just me or +1"
+    </label><br />
+    <label><input type="radio" name="q3" value="c2">
+      "2-3 passengers"
+    </label><br />
+    <label><input type="radio" name="q3" value="c3">
+      "4-5+ passengers"
+    </label><br />
+    
+    <!-- Question 4 -->
+    <h2>What's a problem you never want to run into?</h2>
+    <!-- Choices for the fourth question -->
+    <label><input type="radio" name="q4" value="c1">
+      "Too many heads, not enough seats"
+    </label><br />
+    <label><input type="radio" name="q4" value="c2">
+      "Can't find a parking spot because my car is too big"
+    </label><br />
+    <label><input type="radio" name="q4" value="c3">
+      "Couldn't make the light because my car is too heavy and slow to pick up speed"
+    </label><br />
+    <label><input type="radio" name="q4" value="c4">
+      "Can't fit all my gear in my trunk"
+    </label><br />
+
+    <!-- Question 5 -->
+    <h2>What part of your city/town do you typically commute in?</h2>
+    <!-- Choices for the fourth question -->
+    <label><input type="radio" name="q5" value="c1">
+      "Urban"
+    </label><br />
+    <label><input type="radio" name="q5" value="c2">
+      "Suburban"
+    </label><br />
+    <label><input type="radio" name="q5" value="c3">
+      "Rural"
+    </label><br />
+
+    <!-- Question 6 -->
+    <h2>Which characteristic would you prefer your car to have?</h2>
+    <!-- Choices for the fourth question -->
+    <label><input type="radio" name="q6" value="c1">
+      "Stylish and good looking (built to make your friends jealous)"
+    </label><br />
+    <label><input type="radio" name="q6" value="c2">
+      "Practical and modest (perfect for getting you from point A to point B day in and day out)"
+    </label><br />
+    
+    <button type="submit" id="submit" onclick="tabulateAnswers()">Submit Your Answers</button>
+  <button type="reset" id="reset" onclick="resetAnswer()">Reset</button>
+  </form>
+  
+  
+  <div id="answer">Your result will show up here!</div>
+</div>

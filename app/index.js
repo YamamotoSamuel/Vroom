@@ -2,6 +2,22 @@ const Celebrity = require('./models/celebrity.js')
 
 module.exports = function(app, passport) {
 
+    app.get('/question', (req, res, next) => {
+      res.render('question')
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
     app.get('/celebrities', (req,res,next) => {
         Celebrity.find().then(celebs => {
           res.render('celebrities.hbs', { celebs })
