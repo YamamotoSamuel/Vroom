@@ -1,4 +1,4 @@
-const Celebrity = require("./models/celebrity.js");
+// const Celebrity = require("./models/celebrity.js");
 const User = require("./models/user.js");
 const Quiz = require("./models/quiz.js");
 
@@ -20,56 +20,68 @@ module.exports = function(app, passport) {
   let cars = [
 
     {
-      type:'Suburban',
-      seating: '4 or more',
-      economics: 'Horsepower',
-      name: 'Z',
-      problems:'Cant find a parking spot because my car is too big',
-      score:0
-    },
-    {
-      type:'Urban',
-      seating: '4 or more',
+      name: 'Sedan',
+      safety: ['3','4'],
       economics: 'MPG',
-      name: 'Taho',
+      seating: ['Just me or +1', '2-4 passengers'],
       problems:'Cant find a parking spot because my car is too big',
+      cityType:['Urban', 'Suburban', 'Rural'],
+      cargo:'No',
       score:0
     },
     {
-      type:'SubUrban',
-      seating: '4 or more',
+      name: 'Coupe',
+      safety: ['1','2','3'],
       economics: 'Horsepower',
-      name: 'Y!',
-      problems:'Cant find a parking spot because my car is too big',
+      seating: 'Just me or +1',
+      problems:['Couldnt make the light because my car is too heavy and slow to pick up speed', 
+      'Cant find a parking spot because my car is too big'],
+      cityType:['Suburban', 'Rural'],
+      cargo:'No',
       score:0
     },
     {
-      type:'Urban',
-      seating: '4 or more',
+      name: 'Hatchback or Wagon',
+      safety: ['3','4'],
       economics: 'Horsepower',
-      name: 'W',
-      problems:'Cant find a parking spot because my car is too big',
+      seating: '2-4 passengers',
+      problems:['Couldnt make the light because my car is too heavy and slow to pick up speed', 
+      'Cant find a parking spot because my car is too big', 'Cant fit all my gear in my trunk'],
+      cityType:'Suburban',
+      cargo:['Yes','No'],
       score:0
     },
+    {
+      name: 'SUV or Crossover',
+      safety: ['4','5'],
+      economics: 'MPG',
+      seating: '2-4 passengers',
+      problems:'Cant fit all my gear in my trunk',
+      cityType:'Urban',
+      cargo:'Yes',
+      score:0
+    },
+    {
+      name: 'Van or Minivan',
+      safety: ['4','5'],
+      economics: 'MPG',
+      seating: '5+',
+      problems:['Too many heads, not enough seats', 'Cant fit all my gear in my trunk'],
+      cityType:'Urban',
+      cargo:'Yes',
+      score:0
+    },
+    {
+      name: 'Truck',
+      safety: ['4','5'],
+      economics: 'Horsepower',
+      seating: ['Just me or +1', '2-4'],
+      problems:'Cant fit all my gear in my trunk',
+      cityType:['Urban','Suburban','Rural'],
+      cargo:'Yes',
+      score:0
+    }
   ]
-
-
-
-  /**
-   * 
-   * MPG vs Horsepower 
-   * 
-   * 
-   * Just me 
-   * 2-3 
-   * 4 or more
-   * 
-   * 
-   * 
-   */
-
-
-
 
 
   function filterCarFunction(yourLatestQuiz){
@@ -77,13 +89,14 @@ module.exports = function(app, passport) {
 
     console.log(answers)
     
-    for(let c=0; c<cars.length; c++){
+    for(let c=0; c<cars.length; c++){ //loop through all cars
       let eachCar = cars[c]
 
-        for(ansKey in answers){
-          for(key in eachCar){
+        for(ansKey in answers){ //loop through all answers 
+          for(key in eachCar){ //at each answer we loop through each car's attributes 
           console.log(eachCar[ansKey] == answers[ansKey], eachCar[ansKey], answers[ansKey])
-          if(eachCar[ansKey] == answers[ansKey]){
+          //if(eachCar[ansKey] == answers[ansKey]){
+            if(eachCar[ansKey].includes(answers[ansKey])){
             eachCar['score']++
             break;
           }
@@ -127,6 +140,7 @@ module.exports = function(app, passport) {
   // PROFILE SECTION =========================
   app.get("/profile", isLoggedIn, function(req, res) {
 
+    console.log('in profile', req.user._id, 'adfasdf', req.user.local._id)
 
 
     Quiz.findOne({ userId: req.user._id}).sort({$natural:-1}).then(yourLatestQuiz => {
@@ -147,46 +161,46 @@ module.exports = function(app, passport) {
     res.redirect("/");
   });
 
-  app.get("/celebrities", (req, res, next) => {
-    Celebrity.find().then(celebs => {
-      res.render("celebrities.hbs", { celebs });
-    });
-  });
+  // app.get("/celebrities", (req, res, next) => {
+  //   Celebrity.find().then(celebs => {
+  //     res.render("celebrities.hbs", { celebs });
+  //   });
+  // });
 
-  app.post("/saveActorToTheDatabase", (req, res, next) => {
-    console.log("did we make it????", req.body);
-    Celebrity.create(req.body).then(result => {
-      res.redirect("celebrities");
-    });
-  });
+  // app.post("/saveActorToTheDatabase", (req, res, next) => {
+  //   console.log("did we make it????", req.body);
+  //   Celebrity.create(req.body).then(result => {
+  //     res.redirect("celebrities");
+  //   });
+  // });
 
-  ///details/5cc9e9a3329be1f82a23c0da
-  app.get("/details/:celebID", (req, res, next) => {
-    Celebrity.findById(req.params.celebID).then(celeb => {
-      res.render("celebDetail.hbs", { celeb });
-    });
-  });
+  // ///details/5cc9e9a3329be1f82a23c0da
+  // app.get("/details/:celebID", (req, res, next) => {
+  //   Celebrity.findById(req.params.celebID).then(celeb => {
+  //     res.render("celebDetail.hbs", { celeb });
+  //   });
+  // });
 
-  app.get("/delete/:id", (req, res, next) => {
-    Celebrity.findByIdAndDelete(req.params.id)
-      .then(r => {
-        console.log(r);
-        res.redirect("/celebrities");
-      })
-      .catch(err => console.log(err));
-  });
+  // app.get("/delete/:id", (req, res, next) => {
+  //   Celebrity.findByIdAndDelete(req.params.id)
+  //     .then(r => {
+  //       console.log(r);
+  //       res.redirect("/celebrities");
+  //     })
+  //     .catch(err => console.log(err));
+  // });
 
-  app.get("/edit/:id", (req, res, next) => {
-    Celebrity.findById(req.params.id).then(celeb => {
-      res.render("edit.hbs", { celeb });
-    });
-  });
+  // app.get("/edit/:id", (req, res, next) => {
+  //   Celebrity.findById(req.params.id).then(celeb => {
+  //     res.render("edit.hbs", { celeb });
+  //   });
+  // });
   //http://localhost:3000/edit/5cc9ee3d420635faac3fd7df
-  app.post("/edit/:id", (req, res, next) => {
-    Celebrity.findByIdAndUpdate(req.params.id, req.body).then(ifItWOrKs => {
-      res.redirect(`/details/${req.params.id}`);
-    });
-  });
+  // app.post("/edit/:id", (req, res, next) => {
+  //   Celebrity.findByIdAndUpdate(req.params.id, req.body).then(ifItWOrKs => {
+  //     res.redirect(`/details/${req.params.id}`);
+  //   });
+  // });
 
   // route middleware to ensure user is logged in
   function isLoggedIn(req, res, next) {

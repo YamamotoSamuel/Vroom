@@ -4,14 +4,24 @@
   
   <form id="quiz" action="saveMyMoFoQuiz" method="POST">
     <!-- Question 1 -->
-    <h2>Where do you enjoy driving the most?</h2>
+    <h2>If you were to rate your preference on the safety provided by your vehicle on a numeric scale from 1-5, 1 being the lowest,
+        what rating would you give your preference?</h2>
     <!-- Here are the choices for the first question. Each input tag must have the same name. For this question, the name is q1. -->
     <!-- The value is which answer the choice corresponds to. -->
-    <label><input type="radio" name="Question 1" value="Bumpy offroad">
-      "Bumpy offroad"
+    <label><input type="radio" name="safety" value="1">
+      "1"
     </label><br />
-    <label><input type="radio" name="Question 1" value="Smoothly paved streets">
-      "Smoothly paved streets"
+    <label><input type="radio" name="safety" value="2">
+      "2"
+    </label><br />
+    <label><input type="radio" name="safety" value="3">
+      "3"
+    </label><br />
+    <label><input type="radio" name="safety" value="4">
+      "4"
+    </label><br />
+    <label><input type="radio" name="safety" value="5">
+      "5"
     </label><br />
 
     <!-- Question 2 -->
@@ -20,60 +30,60 @@
     <label><input type="radio" name="economics" value="MPG">
       "MPG"
     </label><br />
-    <label><input type="radio" name="economics" value="HorsePower">
+    <label><input type="radio" name="economics" value="Horsepower">
       "Horsepower"
     </label><br />
     
     <!-- Question 3 -->
     <h2>How many passengers are typically in your car?</h2>
     <!-- Choices for the third question -->
-    <label><input type="radio" name="Question 3" value="Just me or +1">
+    <label><input type="radio" name="seating" value="Just me or +1">
       "Just me or +1"
     </label><br />
-    <label><input type="radio" name="Question 3" value="2-3 passengers">
-      "2-3 passengers"
+    <label><input type="radio" name="seating" value="2-4 passengers">
+      "2-4 passengers"
     </label><br />
-    <label><input type="radio" name="Question 3" value="4-5+ passengers">
-      "4-5+ passengers"
+    <label><input type="radio" name="seating" value="5+ passengers">
+      "5+ passengers"
     </label><br />
     
     <!-- Question 4 -->
     <h2>What's a problem you never want to run into?</h2>
     <!-- Choices for the fourth question -->
-    <label><input type="radio" name="Question 4" value="Too many heads, not enough seats">
+    <label><input type="radio" name="problems" value="Too many heads, not enough seats">
       "Too many heads, not enough seats"
     </label><br />
-    <label><input type="radio" name="Question 4" value="Can't find a parking spot because my car is too big">
+    <label><input type="radio" name="problems" value="Can't find a parking spot because my car is too big">
       "Can't find a parking spot because my car is too big"
     </label><br />
-    <label><input type="radio" name="Question 4" value="Couldn't make the light because my car is too heavy and slow to pick up speed">
+    <label><input type="radio" name="problems" value="Couldn't make the light because my car is too heavy and slow to pick up speed">
       "Couldn't make the light because my car is too heavy and slow to pick up speed"
     </label><br />
-    <label><input type="radio" name="Question 4" value="Can't fit all my gear in my trunk">
+    <label><input type="radio" name="problems" value="Can't fit all my gear in my trunk">
       "Can't fit all my gear in my trunk"
     </label><br />
 
     <!-- Question 5 -->
     <h2>What part of your city/town do you typically commute in?</h2>
     <!-- Choices for the fourth question -->
-    <label><input type="radio" name="type" value="Urban">
+    <label><input type="radio" name="cityType" value="Urban">
       "Urban"
     </label><br />
-    <label><input type="radio" name="type" value="Suburban">
+    <label><input type="radio" name="cityType" value="Suburban">
       "Suburban"
     </label><br />
-    <label><input type="radio" name="type" value="Rural">
+    <label><input type="radio" name="cityType" value="Rural">
       "Rural"
     </label><br />
 
     <!-- Question 6 -->
-    <h2>Which characteristic would you prefer your car to have?</h2>
+    <h2>Does your job or preferred lifestyle require you to consistently have lots of cargo?</h2>
     <!-- Choices for the fourth question -->
-    <label><input type="radio" name="Question 6" value="Coupe, Hatchback, SUV/Crossover">
-      "Stylish and good looking (built to make your friends jealous)"
+    <label><input type="radio" name="cargo" value="Yes">
+      "Yes"
     </label><br />
-    <label><input type="radio" name="Question 6" value="Sedan, Truck, Van/Minivan">
-      "Practical and modest (perfect for getting you from point A to point B day in and day out)"
+    <label><input type="radio" name="cargo" value="No">
+      "No"
     </label><br />
     
     <button type="submit" id="submit" onclick="tabulateAnswers()">Submit Your Answers</button>
