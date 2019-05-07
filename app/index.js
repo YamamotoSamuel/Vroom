@@ -92,7 +92,7 @@ module.exports = function(app, passport) {
       }
       console.log(eachCar)
     }
-    let bestCar = {score:0} 
+    let bestCar = cars[0]
     cars.forEach(car=>{
       if(car.score > bestCar.score) {
         bestCar = car;
@@ -100,7 +100,7 @@ module.exports = function(app, passport) {
     })
 
     console.log('the best car is', bestCar)
-    return cars
+    return bestCar
 
 
   }
@@ -118,9 +118,9 @@ module.exports = function(app, passport) {
     Quiz.findOne({ userId: req.user._id}).sort({$natural:-1}).then(yourLatestQuiz => {
       console.log(yourLatestQuiz)
       //Now you gotta do the recommendation logic.... ?  Urban, Stylish, Can't fit all the gear in my truck 
-      let filteredCars = filterCarFunction(yourLatestQuiz)
+      let bestCar = filterCarFunction(yourLatestQuiz)
 
-      res.render("index.hbs", { filteredCars });
+      res.render("index.hbs", { bestCar });
     })
   });
 
@@ -131,11 +131,12 @@ module.exports = function(app, passport) {
 
     Quiz.findOne({ userId: req.user._id}).sort({$natural:-1}).then(yourLatestQuiz => {
 
-      filterCarFunction(yourLatestQuiz)
+      let bestCar = filterCarFunction(yourLatestQuiz)
 
       res.render("profile.hbs", {
         user: req.user,
-        quiz: yourLatestQuiz
+        quiz: yourLatestQuiz,
+        bestCar
       });
     })
   });
