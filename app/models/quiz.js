@@ -7,6 +7,6 @@ const QuizSchema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref:"User"} //String
 })
 
-const Quizrity = mongoose.model('Quizrity', QuizSchema)
+const Quizrities = mongoose.model('Quizrities', QuizSchema)
 
-module.exports = Quizrity;
+module.exports = Quizrities;

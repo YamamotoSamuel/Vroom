@@ -6,7 +6,7 @@ module.exports = function(app, passport) {
   app.get("/question", (req, res, next) => {
     res.render("question");
   });
-  
+
 
   app.post("/saveMyMoFoQuiz", isLoggedIn, (req, res, next) => {
     console.log("am i in this mofo shit ", req.body);
@@ -17,17 +17,125 @@ module.exports = function(app, passport) {
 
   // normal routes ===============================================================
 
+  let cars = [
+
+    {
+      type:'Suburban',
+      seating: '4 or more',
+      economics: 'Horsepower',
+      name: 'Z',
+      problems:'Cant find a parking spot because my car is too big',
+      score:0
+    },
+    {
+      type:'Urban',
+      seating: '4 or more',
+      economics: 'MPG',
+      name: 'Taho',
+      problems:'Cant find a parking spot because my car is too big',
+      score:0
+    },
+    {
+      type:'SubUrban',
+      seating: '4 or more',
+      economics: 'Horsepower',
+      name: 'Y!',
+      problems:'Cant find a parking spot because my car is too big',
+      score:0
+    },
+    {
+      type:'Urban',
+      seating: '4 or more',
+      economics: 'Horsepower',
+      name: 'W',
+      problems:'Cant find a parking spot because my car is too big',
+      score:0
+    },
+  ]
+
+
+
+  /**
+   * 
+   * MPG vs Horsepower 
+   * 
+   * 
+   * Just me 
+   * 2-3 
+   * 4 or more
+   * 
+   * 
+   * 
+   */
+
+
+
+
+
+  function filterCarFunction(yourLatestQuiz){
+    let answers = yourLatestQuiz.questions; 
+
+    console.log(answers)
+    
+    for(let c=0; c<cars.length; c++){
+      let eachCar = cars[c]
+
+        for(ansKey in answers){
+          for(key in eachCar){
+          console.log(eachCar[ansKey] == answers[ansKey], eachCar[ansKey], answers[ansKey])
+          if(eachCar[ansKey] == answers[ansKey]){
+            eachCar['score']++
+            break;
+          }
+        }
+        //return eachCar[key] == eachCar[key]
+      }
+      console.log(eachCar)
+    }
+    let bestCar = {score:0} 
+    cars.forEach(car=>{
+      if(car.score > bestCar.score) {
+        bestCar = car;
+      }
+    })
+
+    console.log('the best car is', bestCar)
+    return cars
+
+
+  }
+
+
+
+
+
+
+
+
   // show the home page (will also have our login links)
-  app.get("/", function(req, res) {
-    res.render("index.hbs");
+  app.get("/",  isLoggedIn, function(req, res) {
+
+    Quiz.findOne({ userId: req.user._id}).sort({$natural:-1}).then(yourLatestQuiz => {
+      console.log(yourLatestQuiz)
+      //Now you gotta do the recommendation logic.... ?  Urban, Stylish, Can't fit all the gear in my truck 
+      let filteredCars = filterCarFunction(yourLatestQuiz)
+
+      res.render("index.hbs", { filteredCars });
+    })
   });
 
   // PROFILE SECTION =========================
   app.get("/profile", isLoggedIn, function(req, res) {
-    Quiz.findOne({ userId: req.user._id}).sort({$natural:-1}).then(yourLatestQuizlet => {
+
+
+
+    Quiz.findOne({ userId: req.user._id}).sort({$natural:-1}).then(yourLatestQuiz => {
+
+      filterCarFunction(yourLatestQuiz)
+
       res.render("profile.hbs", {
         user: req.user,
-        quiz: yourLatestQuizlet
+        quiz: yourLatestQuiz
       });
     })
   });
@@ -83,6 +191,6 @@ module.exports = function(app, passport) {
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
 
-    res.redirect("/");
+    res.redirect("/login");
   }
 };

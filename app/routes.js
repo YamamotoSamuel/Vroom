@@ -165,7 +165,7 @@ module.exports = function(app, passport) {
         });
     });
 
-
+    
 };
 
 // route middleware to ensure user is logged in
