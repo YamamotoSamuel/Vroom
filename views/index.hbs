@@ -1,8 +1,6 @@
 <div class="container">
     {{user.local.email}}
 
-    BEST CAR: {{bestCar.name}}
-
     <div class="jumbotron text-center">
         <h1><span class="fa fa-lock"></span>Car in Need</h1>
 
@@ -29,4 +27,10 @@
         market,
         figuring out what car you're going to buy next can be a stressful and seemingly impossible task. Lucky for you,
         Car in Need helps YOU understand what kind of car would best suit you and your needs!</h3>
-    <h2>Your Best Fit Car...</h2>
+    <h2>Your Best Fit Car is a...</h2>
+    <h2>{{bestCar.name}}</h2>
+
+    {{#each bestCar.images}}
+        <img class= "images" src = {{this}}>
+    {{/each}}
+</div>

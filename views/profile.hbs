@@ -1,8 +1,11 @@
 <div class="container">
 
     {{#each quiz.questions}}
-    Key: {{@key}} Value = {{this}} </br>
+    Key: {{@key}}</br>
+    Value: {{this}}
+    </br></br>
     {{/each}}
+    BEST CAR: {{bestCar.name}}
 
     <div class="page-header text-center">
         <h1><span class="fa fa-anchor"></span> Profile Page</h1>
@@ -11,7 +14,6 @@
 
     <div class="row">
 
-        BEST CAR: {{bestCar.name}}
         <!-- LOCAL INFORMATION -->
         <div class="col-sm-6">
             <div class="well">

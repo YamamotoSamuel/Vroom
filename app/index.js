@@ -25,7 +25,9 @@ module.exports = function(app, passport) {
       problems: "Cant find a parking spot because my car is too big",
       cargo: "No",
       score: 0,
-      images: ['images/sedan.jpg','images/sedan2.jpg', ]
+      images: ['images/sedan1.png','images/sedan2.png','images/sedan3.png' ],
+      image: 'images/sedan1.png'
+
     },
     {
       name: "Coupe",
@@ -37,7 +39,9 @@ module.exports = function(app, passport) {
         "Cant find a parking spot because my car is too big"
       ],
       cargo: "No",
-      score: 0
+      score: 0,
+      images: ['images/coupe1.webp','images/coupe2.webp','images/coupe3.png' ],
+      image: 'images/coupe1.webp'
     },
     {
       name: "Hatchback or Wagon",
@@ -50,7 +54,10 @@ module.exports = function(app, passport) {
         "Cant fit all my gear in my trunk"
       ],
       cargo: "Yes",
-      score: 0
+      score: 0,
+      images: ['/images/hatch1.png','/images/hatch2.webp','/images/hatch3.webp' ],
+      image: '/images/hatch1.png'
+
     },
     {
       name: "SUV or Crossover",
@@ -59,7 +66,10 @@ module.exports = function(app, passport) {
       seating: "2-4 passengers",
       problems: "Cant fit all my gear in my trunk",
       cargo: "Yes",
-      score: 0
+      score: 0,
+      images: ['images/suv1.png','images/suv2.png','images/suv3.webp' ],
+      image: 'images/suv1.png'
+
     },
     {
       name: "Van or Minivan",
@@ -71,7 +81,10 @@ module.exports = function(app, passport) {
         "Cant fit all my gear in my trunk"
       ],
       cargo: "Yes",
-      score: 0
+      score: 0,
+      images: ['images/van1.png','images/van2.webp','images/van3.png' ],
+      image: 'images/van1.png'
+
     },
     {
       name: "Truck",
@@ -80,7 +93,10 @@ module.exports = function(app, passport) {
       seating: ["Just me or +1", "2-4"],
       problems: "Cant fit all my gear in my trunk",
       cargo: "Yes",
-      score: 0
+      score: 0,
+      images: ['images/truck1.png','images/truck2.webp','images/truck3.png' ],
+      image: 'images/truck1.png'
+
     }
   ];
 
@@ -126,7 +142,7 @@ module.exports = function(app, passport) {
   // show the home page (will also have our login links)
   app.get("/", isLoggedIn, function(req, res) {
     Quiz.findOne({ userId: req.user._id })
-      .sort({ $natural: -1 })
+      .sort({ $natural: 1 })
       .then(yourLatestQuiz => {
         console.log(yourLatestQuiz);
         //Now you gotta do the recommendation logic.... ?  Urban, Stylish, Can't fit all the gear in my truck
