@@ -1,6 +1,8 @@
 // const Celebrity = require("./models/celebrity.js");
 const User = require("./models/user.js");
 const Quiz = require("./models/quiz.js");
+const Cars = require("./models/cars.js");
+const carsOriginal = require('../cars') 
 
 module.exports = function(app, passport) {
   app.get("/question", (req, res, next) => {
@@ -8,7 +10,7 @@ module.exports = function(app, passport) {
   });
 
   app.post("/saveMyQuiz", isLoggedIn, (req, res, next) => {
-    console.log("am i in this", req.body);
+    //console.log("am i in this", req.body);
     Quiz.create({ questions: req.body, userId: req.user._id }).then(result => {
       res.redirect("/");
     });
@@ -16,94 +18,16 @@ module.exports = function(app, passport) {
 
   // normal routes ===============================================================
 
-  let cars = [
-    {
-      name: "Sedan",
-      safety: ["3", "4"],
-      economics: "MPG",
-      seating: ["Just me or +1", "2-4 passengers"],
-      problems: "Cant find a parking spot because my car is too big",
-      cargo: "No",
-      score: 0,
-      images: ['images/sedan1.png','images/sedan2.png','images/sedan3.png' ],
-      image: 'images/sedan1.png'
 
-    },
-    {
-      name: "Coupe",
-      safety: ["1", "2", "3"],
-      economics: "Horsepower",
-      seating: "Just me or +1",
-      problems: [
-        "Couldnt make the light because my car is too heavy and slow to pick up speed",
-        "Cant find a parking spot because my car is too big"
-      ],
-      cargo: "No",
-      score: 0,
-      images: ['images/coupe1.webp','images/coupe2.webp','images/coupe3.png' ],
-      image: 'images/coupe1.webp'
-    },
-    {
-      name: "Hatchback or Wagon",
-      safety: ["3", "4"],
-      economics: "Horsepower",
-      seating: "2-4 passengers",
-      problems: [
-        "Couldnt make the light because my car is too heavy and slow to pick up speed",
-        "Cant find a parking spot because my car is too big",
-        "Cant fit all my gear in my trunk"
-      ],
-      cargo: "Yes",
-      score: 0,
-      images: ['/images/hatch1.png','/images/hatch2.webp','/images/hatch3.webp' ],
-      image: '/images/hatch1.png'
+  
 
-    },
-    {
-      name: "SUV or Crossover",
-      safety: ["4", "5"],
-      economics: "MPG",
-      seating: "2-4 passengers",
-      problems: "Cant fit all my gear in my trunk",
-      cargo: "Yes",
-      score: 0,
-      images: ['images/suv1.png','images/suv2.png','images/suv3.webp' ],
-      image: 'images/suv1.png'
 
-    },
-    {
-      name: "Van or Minivan",
-      safety: ["4", "5"],
-      economics: "MPG",
-      seating: "5+",
-      problems: [
-        "Too many heads, not enough seats",
-        "Cant fit all my gear in my trunk"
-      ],
-      cargo: "Yes",
-      score: 0,
-      images: ['images/van1.png','images/van2.webp','images/van3.png' ],
-      image: 'images/van1.png'
-
-    },
-    {
-      name: "Truck",
-      safety: ["4", "5"],
-      economics: "Horsepower",
-      seating: ["Just me or +1", "2-4"],
-      problems: "Cant fit all my gear in my trunk",
-      cargo: "Yes",
-      score: 0,
-      images: ['images/truck1.png','images/truck2.webp','images/truck3.png' ],
-      image: 'images/truck1.png'
-
-    }
-  ];
-
-  function filterCarFunction(yourLatestQuiz) {
+   function filterCarFunction(yourLatestQuiz) {
     let answers = yourLatestQuiz.questions;
+    let cars = [...carsOriginal]
 
-    console.log(answers);
+    console.log('cars copy',cars)
+    //console.log(answers);
 
     for (let c = 0; c < cars.length; c++) {
       //loop through all cars
@@ -112,21 +36,13 @@ module.exports = function(app, passport) {
       for (ansKey in answers) {
         //loop through all answers
         for (key in eachCar) {
-          //at each answer we loop through each car's attributes
-          console.log(
-            eachCar[ansKey] == answers[ansKey],
-            eachCar[ansKey],
-            answers[ansKey]
-          );
-          //if(eachCar[ansKey] == answers[ansKey]){
+
           if (eachCar[ansKey].includes(answers[ansKey])) {
             eachCar["score"]++;
             break;
           }
         }
-        //return eachCar[key] == eachCar[key]
       }
-      console.log(eachCar);
     }
     let bestCar = cars[0];
     cars.forEach(car => {
