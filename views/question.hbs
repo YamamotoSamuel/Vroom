@@ -1,11 +1,12 @@
 <div id="wrapper">
   <h1>What kind of car suits you best?</h1>
   <p>Take this questionnaire to find out!</p>
-  
-  <form id="quiz" action="saveMyMoFoQuiz" method="POST">
+
+  <form id="quiz" action="saveMyQuiz" method="POST">
     <!-- Question 1 -->
-    <h2>If you were to rate your preference on the safety provided by your vehicle on a numeric scale from 1-5, 1 being the lowest,
-        what rating would you give your preference?</h2>
+    <h2>If you were to rate your preference on the safety provided by your vehicle on a numeric scale from 1-5, 1 being
+      the lowest,
+      what rating would you give your preference?</h2>
     <!-- Here are the choices for the first question. Each input tag must have the same name. For this question, the name is q1. -->
     <!-- The value is which answer the choice corresponds to. -->
     <label><input type="radio" name="safety" value="1">
@@ -33,7 +34,7 @@
     <label><input type="radio" name="economics" value="Horsepower">
       "Horsepower"
     </label><br />
-    
+
     <!-- Question 3 -->
     <h2>How many passengers are typically in your car?</h2>
     <!-- Choices for the third question -->
@@ -46,7 +47,7 @@
     <label><input type="radio" name="seating" value="5+ passengers">
       "5+ passengers"
     </label><br />
-    
+
     <!-- Question 4 -->
     <h2>What's a problem you never want to run into?</h2>
     <!-- Choices for the fourth question -->
@@ -56,16 +57,17 @@
     <label><input type="radio" name="problems" value="Can't find a parking spot because my car is too big">
       "Can't find a parking spot because my car is too big"
     </label><br />
-    <label><input type="radio" name="problems" value="Couldn't make the light because my car is too heavy and slow to pick up speed">
+    <label><input type="radio" name="problems"
+        value="Couldn't make the light because my car is too heavy and slow to pick up speed">
       "Couldn't make the light because my car is too heavy and slow to pick up speed"
     </label><br />
     <label><input type="radio" name="problems" value="Can't fit all my gear in my trunk">
       "Can't fit all my gear in my trunk"
     </label><br />
 
-    <!-- Question 5 -->
+    <!-- Question 5
     <h2>What part of your city/town do you typically commute in?</h2>
-    <!-- Choices for the fourth question -->
+    Choices for the fifth question
     <label><input type="radio" name="cityType" value="Urban">
       "Urban"
     </label><br />
@@ -74,22 +76,22 @@
     </label><br />
     <label><input type="radio" name="cityType" value="Rural">
       "Rural"
-    </label><br />
+    </label><br /> -->
 
     <!-- Question 6 -->
     <h2>Does your job or preferred lifestyle require you to consistently have lots of cargo?</h2>
-    <!-- Choices for the fourth question -->
+    <!-- Choices for the sixth question -->
     <label><input type="radio" name="cargo" value="Yes">
       "Yes"
     </label><br />
     <label><input type="radio" name="cargo" value="No">
       "No"
     </label><br />
-    
+
     <button type="submit" id="submit" onclick="tabulateAnswers()">Submit Your Answers</button>
     <button type="reset" id="reset" onclick="resetAnswer()">Reset</button>
   </form>
-  
-  
+
+
   <div id="answer">Your result will show up here!</div>
 </div>

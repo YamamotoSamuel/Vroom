@@ -1,12 +1,12 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
 const QuizSchema = new Schema({
-  questions:Object,
-  userId: { type: Schema.Types.ObjectId, ref:"User"} //String
-})
+  questions: Object,
+  userId: { type: Schema.Types.ObjectId, ref: "User" } //String
+});
 
-const Quizrities = mongoose.model('Quizrities', QuizSchema)
+const Quizzes = mongoose.model("Quizzes", QuizSchema);
 
-module.exports = Quizrities;
+module.exports = Quizzes;
