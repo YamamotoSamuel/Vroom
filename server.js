@@ -19,7 +19,7 @@ var configDB = require("./config/database.js");
 var path = require("path");
 
 // configuration ===============================================================
-mongoose.connect(configDB.url); // connect to our database
+mongoose.connect("mongodb+srv://syama_99:Giants123@cluster0-usixm.mongodb.net/test?retryWrites=true"); // connect to our database
 
 require("./config/passport")(passport); // pass passport for configuration
 
