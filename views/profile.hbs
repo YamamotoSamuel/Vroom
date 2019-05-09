@@ -1,14 +1,14 @@
-<div class="container">
+<div class="profile-container">
 
-    {{#each quiz.questions}}
+    {{!-- {{#each quiz.questions}}
     Key: {{@key}}</br>
     Value: {{this}}
     </br></br>
-    {{/each}}
-    BEST CAR: {{bestCar.name}}
+    {{/each}} --}}
+    <h2>BEST CAR: {{bestCar.name}}</h2>
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <h1><span class="fa fa-anchor"></span> My Profile</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
         <a href="/" class="btn btn-default btn-sm">Home</a>
     </div>
@@ -18,13 +18,11 @@
         <!-- LOCAL INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
+                <h3><span class="fa fa-user"></span> My Profile Info</h3>
 
                 {{#if user.local.email }}
                 <p>
-                    <strong>id</strong>: {{ user._id }}<br>
-                    <strong>email</strong>:{{ user.local.email }}<br>
-                    <strong>password</strong>: {{ user.local.password }}
+                    <strong>email</strong>:{{ user.local.email }}
                 </p>
 
                 <a href="/unlink/local" class="btn btn-default">Unlink</a>
@@ -36,12 +34,12 @@
         </div>
 
         <!-- FACEBOOK INFORMATION -->
-        <div class="col-sm-6">
+        {{!-- <div class="col-sm-6">
             <div class="well">
-                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3> --}}
 
                 <!-- check if the user has this token (is the user authenticated with this social account) -->
-                {{#if user.facebook.token }}
+                {{!-- {{#if user.facebook.token }}
                 <p>
                     <strong>id</strong>: {{ user.facebook.id }}<br>
                     <strong>token</strong>: {{ user.facebook.token }}<br>
@@ -57,10 +55,10 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row"> --}}
 
         <!-- TWITTER INFORMATION -->
-        <div class="col-sm-6">
+        {{!-- <div class="col-sm-6">
             <div class="well">
                 <h3 class="text-info"><span class="fa fa-twitter"></span> Twitter</h3>
 
@@ -78,10 +76,10 @@
                 {{/if}}
 
             </div>
-        </div>
+        </div> --}}
 
         <!-- GOOGLE INFORMATION -->
-        <div class="col-sm-6">
+        {{!-- <div class="col-sm-6">
             <div class="well">
                 <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
 
@@ -98,14 +96,13 @@
                 <a href="/connect/google" class="btn btn-primary">Connect Google</a>
                 {{/if}}
 
-            </div>
+            </div> --}}
         </div>
     </div>
-    <p>Go<a href="/"> Home</a></p>
 
 
     <div class="text-center">
-        <p>Retry the <a href="/question">Questionnare</a>.</p>
+        <a href="/question" class="btn btn-default btn-sm" id= "retry"> Retry the Questionnare</a>
         <p>Search for your perfect car at <a href="https://www.cargurus.com">Car Gurus</a>.</p>
     </div>
 

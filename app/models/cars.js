@@ -7,7 +7,7 @@ const CarsSchema = new Schema({
     safety: Array,
     economics: String,
     seating: Array,
-    problems: String,
+    problems: Array,
     cargo: String,
     score: Number,
     images: Array,

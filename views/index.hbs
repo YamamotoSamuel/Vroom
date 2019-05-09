@@ -1,26 +1,21 @@
-<div class="container">
-    {{user.local.email}}
+<div class="index-container">
 
     <div class="jumbotron text-center">
-        <h1><span class="fa fa-lock"></span>Car in Need</h1>
+        <h1>Car in Need</h1>
 
         <p>Login or Register with:</p>
 
-        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
-        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
-        <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+        <a href="/login" class="btn btn-default">Local Login</a>
+        <a href="/signup" class="btn btn-default">Local Signup</a>
+        {{!-- <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
         <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
-        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a>
-    </div>
-    <div>
+        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a> --}}
+    <div id='user'>
         <a href="/profile" class="btn btn-default">Profile</a>
     </div>
-
-    <div class="text-center">
-        <p>Complete the <a href="/question">Questionnare</a>.</p>
     </div>
 
-
+    <a href="/question" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Complete the Questionnare</a>
 
     <h1>Car in Need</h1>
     <h3>So you want to buy a car? Well, whether you're looking to get a new car within a month or simply scanning the
