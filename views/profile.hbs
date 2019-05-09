@@ -1,29 +1,24 @@
 <div class="profile-container">
 
-    {{!-- {{#each quiz.questions}}
-    Key: {{@key}}</br>
-    Value: {{this}}
-    </br></br>
-    {{/each}} --}}
-    <h2>BEST CAR: {{bestCar.name}}</h2>
-
     <div class="page-header text-center">
         <h1><span class="fa fa-anchor"></span> My Profile</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-        <a href="/" class="btn btn-default btn-sm">Home</a>
+        <a href="/logout" class="btn btn-warning btn-sm">Logout</a>
+        <a href="/" class="btn btn-warning btn-sm">Home</a>
     </div>
 
     <div class="row">
 
         <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
+        <div id="profile-info" class="col-sm-6">
             <div class="well">
                 <h3><span class="fa fa-user"></span> My Profile Info</h3>
 
                 {{#if user.local.email }}
-                <p>
-                    <strong>email</strong>:{{ user.local.email }}
-                </p>
+                <h3>
+                    <strong>e-mail</strong>:{{ user.local.email }} <br/>
+                    <strong>Best Car</strong>:{{bestCar.name}}
+                </h3>
+
 
                 <a href="/unlink/local" class="btn btn-default">Unlink</a>
                 {{else}}
@@ -102,7 +97,7 @@
 
 
     <div class="text-center">
-        <a href="/question" class="btn btn-default btn-sm" id= "retry"> Retry the Questionnare</a>
+        <a href="/question" class="btn btn-primary btn-sm" id= "retry"> Retry the Questionnare</a>
         <p>Search for your perfect car at <a href="https://www.cargurus.com">Car Gurus</a>.</p>
     </div>
 

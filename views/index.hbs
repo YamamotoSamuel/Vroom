@@ -14,14 +14,16 @@
 
     <div class="index-text">
     <h2>So you want to buy a car?</h2>
-    <h3>Well, whether you're looking to get a new car within a month or simply scanning the
+    {{!-- <h3>Well, whether you're looking to get a new car within a month or simply scanning the
         market,
         figuring out what car you're going to buy next can be a stressful and seemingly impossible task. Lucky for you,
-        Car in Need helps YOU understand what kind of car would best suit you and your needs!</h3>
+        Car in Need helps YOU understand what kind of car would best suit you and your needs!</h3> --}}
+    <h3>Thanks for taking our quiz!!! Using the answers you've provided,<br/>we at Car In Need have taken in your answers to determine what we believe to be the best car for you<br/>based on a few key preferences and given lifestyle cues</h3>
+    
     </div>
     <div class="row">
         <div class="col-md-12 text-center">
-            <a href="/question" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Complete the Questionnare</a>
+            <a href="/question" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Retry the Quiz</a>
         </div>
     </div>
     
@@ -29,6 +31,7 @@
         <div>
 <h2>Your Best Fit Car is a...</h2>
     <h2>{{bestCar.name}}</h2>
+    <h3>Scroll down to see a few <br/>{{bestCar.name}} ideas!</h3>
         </div>
     
     </div>

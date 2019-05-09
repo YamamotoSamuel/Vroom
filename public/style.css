@@ -1,3 +1,4 @@
+/*index*/
 .images{
     height: 400px;
     width: 700px;
@@ -5,7 +6,7 @@
 .index-container{
    
 
-    background: url(/images/road-bckrnd.jpg) no-repeat center center fixed; 
+    background: url('/images/road-bckrnd.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -29,10 +30,10 @@
     padding : 30px 10px;
     text-align: center;
     background-color: white;
+    font-family:'racing sans one', cursive;
 }
-.index-text h1{
-    text-align: left;
-    padding-left: 20px;
+.index-text h2{
+    font-size:40px;
 }
 .index-answer{
     color: black;
@@ -47,7 +48,7 @@
 }
 
 .index-answer > div {
-    padding-top : 110px;
+    padding-top :80px;
     padding-right:120px;
     font-family:'racing sans one', cursive;
 }
@@ -60,4 +61,39 @@
     align-content: space-between;
     margin-left: 20px;
     height: 500px;
+    margin-bottom: 70vh;
+}
+/* question */
+.container-fluid{
+    margin: 10px;
+}
+.intro-text{
+    font-family: 'racing sans one', cursive;
+    font-size: 30px;
+    text-align:center;
+}
+#coolFont{
+    font-family:'faster one', cursive;
+    font-size: 50px;
+    text-align:center;
+}
+/* #quiz h2{
+    font-family: 'racing sans one', cursive;
+    background-color:lightblue;
+    width:50%;
+} */
+
+.quiz-font{
+    font-family: 'racing sans one', cursive;
+}
+
+.quiz-bg{
+    background-color:lightblue;
+}
+label{
+    font-family: 'permanent marker', cursive;
+    font-size:25px;
+}
+#quiz .btn{
+    font-size:20px;
 }

@@ -1,15 +1,33 @@
-<div id="wrapper">
-  <h1>What kind of car suits you best?</h1>
-  <p>Take this questionnaire to find out!</p>
-
-  <form id="quiz" action="/saveMyQuiz" method="POST">
-    <!-- Question 1 -->
-    <h2>If you were to rate your preference on the safety provided by your vehicle on a numeric scale from 1-5, 1 being
+<div class="container-fluid">
+  <div class="row wrapper">
+    <div class="col-md-12 text-center">
+        <div class="intro-text">
+    <h2>Hey there! Whether you're looking to get a new car within a month or simply scanning the
+        market,
+        figuring out what car you're going to buy next can be a stressful and seemingly impossible task. Lucky for you,
+        Car in Need helps YOU understand what kind of car would best suit you and your needs! Now, lets find out...</h2>
+  </div>
+  <h1 id="coolFont">What   Kind   Of   Car   Suits    You    Best?</h1>
+      </div>
+    </div>
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+    <!-- FORM START -->
+    <form id="quiz" action="/saveMyQuiz" method="POST">
+		<div class="col-md-8 quiz-bg">
+          <h2 class="quiz-font">If you were to rate your preference on the safety provided by your vehicle on a numeric scale from 1-5,<br/> 1 being
       the lowest,
       what rating would you give your preference?</h2>
-    <!-- Here are the choices for the first question. Each input tag must have the same name. For this question, the name is q1. -->
-    <!-- The value is which answer the choice corresponds to. -->
-    <label><input type="radio" name="safety" value="1">
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+          <label><input type="radio" name="safety" value="1">
       "1"
     </label><br />
     <label><input type="radio" name="safety" value="2">
@@ -24,21 +42,47 @@
     <label><input type="radio" name="safety" value="5">
       "5"
     </label><br />
-
-    <!-- Question 2 -->
-    <h2>What's more important to you?</h2>
-    <!-- Here are the choices for the second question. Notice how each input tag has the same name (q2), but a different name than the previous question. -->
-    <label><input type="radio" name="economics" value="MPG">
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8 quiz-bg">
+      <h2 class="quiz-font">What's more important to you?</h2>
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+      <label><input type="radio" name="economics" value="MPG">
       "MPG"
     </label><br />
     <label><input type="radio" name="economics" value="Horsepower">
       "Horsepower"
     </label><br />
-
-    <!-- Question 3 -->
-    <h2>How many passengers are typically in your car?</h2>
-    <!-- Choices for the third question -->
-    <label><input type="radio" name="seating" value="Just me or +1">
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8 quiz-bg">
+      <h2 class="quiz-font">How many passengers are typically in your car?</h2>
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+         <label><input type="radio" name="seating" value="Just me or +1">
       "Just me or +1"
     </label><br />
     <label><input type="radio" name="seating" value="2-4 passengers">
@@ -47,11 +91,24 @@
     <label><input type="radio" name="seating" value="5+ passengers">
       "5+ passengers"
     </label><br />
-
-    <!-- Question 4 -->
-    <h2>What's a problem you never want to run into?</h2>
-    <!-- Choices for the fourth question -->
-    <label><input type="radio" name="problems" value="Too many heads, not enough seats">
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8 quiz-bg">
+      <h2 class="quiz-font">What's a problem you never want to run into?</h2>
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+          <label><input type="radio" name="problems" value="Too many heads, not enough seats">
       "Too many heads, not enough seats"
     </label><br />
     <label><input type="radio" name="problems" value="Can't find a parking spot because my car is too big">
@@ -64,34 +121,43 @@
     <label><input type="radio" name="problems" value="Can't fit all my gear in my trunk">
       "Can't fit all my gear in my trunk"
     </label><br />
-
-    <!-- Question 5
-    <h2>What part of your city/town do you typically commute in?</h2>
-    Choices for the fifth question
-    <label><input type="radio" name="cityType" value="Urban">
-      "Urban"
-    </label><br />
-    <label><input type="radio" name="cityType" value="Suburban">
-      "Suburban"
-    </label><br />
-    <label><input type="radio" name="cityType" value="Rural">
-      "Rural"
-    </label><br /> -->
-
-    <!-- Question 6 -->
-    <h2>Does your job or preferred lifestyle require you to consistently have lots of cargo?</h2>
-    <!-- Choices for the sixth question -->
-    <label><input type="radio" name="cargo" value="Yes">
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8 quiz-bg">
+          <h2 class="quiz-font">Does your job or preferred lifestyle require you to consistently have lots of cargo?</h2>
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+          <label><input type="radio" name="cargo" value="Yes">
       "Yes"
     </label><br />
     <label><input type="radio" name="cargo" value="No">
       "No"
     </label><br />
-
-    <button type="submit" id="submit" onclick="tabulateAnswers()">Submit Your Answers</button>
-    <button type="reset" id="reset" onclick="resetAnswer()">Reset</button>
-  </form>
-
-
-  <div id="answer">Your result will show up here!</div>
+    
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+  <div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8 text-center">
+          <button type="submit" id="submit" class='btn btn-warning' onclick="tabulateAnswers()" form="quiz">Submit Your Answers</button>
+    <button type="reset" id="reset" class='btn btn-warning' onclick="resetAnswer()">Reset</button>
+    </form>
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
 </div>
