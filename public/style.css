@@ -3,9 +3,61 @@
     width: 700px;
 }
 .index-container{
-    background-image: url(/images/road-bckrnd.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* display:flex;
-    justify-content: center; */
+   
+
+    background: url(/images/road-bckrnd.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 10px;
+}
+.index-title{
+    float:left;
+    top:-10px;
+    margin-left: 20px;
+    font-family:'faster one', cursive;
+}
+.index-login{
+    padding-top:20px;
+    margin-right: 20px;
+    text-align: right;
+}
+.index-text{
+    position:relative;
+    top:-30px;
+    padding : 30px 10px;
+    text-align: center;
+    background-color: white;
+}
+.index-text h1{
+    text-align: left;
+    padding-left: 20px;
+}
+.index-answer{
+    color: black;
+    text-align: center;
+    width:600px;
+    height:442px;
+    margin-top: 40px;
+    margin-left : 35%;
+    background: url(/images/cloud.png) no-repeat;
+    background-size:78%;
+    
+}
+
+.index-answer > div {
+    padding-top : 110px;
+    padding-right:120px;
+    font-family:'racing sans one', cursive;
+}
+.btn{
+    border-radius: 200px;
+    font-family: 'racing sans one', cursive;
+}
+.images{
+    display: flex;
+    align-content: space-between;
+    margin-left: 20px;
+    height: 500px;
 }

@@ -1,30 +1,37 @@
 <div class="index-container">
 
-    <div class="jumbotron text-center">
-        <h1>Car in Need</h1>
-
+    <div class="jumbotron">
+        <div class="index-title">
+        <h1>C a r   I n   N e e d</h1>
+        </div>
+        <div class="index-login">
         <p>Login or Register with:</p>
-
         <a href="/login" class="btn btn-default">Local Login</a>
         <a href="/signup" class="btn btn-default">Local Signup</a>
-        {{!-- <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
-        <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
-        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a> --}}
-    <div id='user'>
         <a href="/profile" class="btn btn-default">Profile</a>
-    </div>
+        </div>
     </div>
 
-    <a href="/question" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Complete the Questionnare</a>
-
-    <h1>Car in Need</h1>
-    <h3>So you want to buy a car? Well, whether you're looking to get a new car within a month or simply scanning the
+    <div class="index-text">
+    <h2>So you want to buy a car?</h2>
+    <h3>Well, whether you're looking to get a new car within a month or simply scanning the
         market,
         figuring out what car you're going to buy next can be a stressful and seemingly impossible task. Lucky for you,
         Car in Need helps YOU understand what kind of car would best suit you and your needs!</h3>
-    <h2>Your Best Fit Car is a...</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <a href="/question" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Complete the Questionnare</a>
+        </div>
+    </div>
+    
+    <div class="index-answer">
+        <div>
+<h2>Your Best Fit Car is a...</h2>
     <h2>{{bestCar.name}}</h2>
-
+        </div>
+    
+    </div>
     <div id = "images">
     {{#each bestCar.images}}
         <img class= "images" src = {{this}}>
