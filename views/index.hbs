@@ -1,43 +1,54 @@
-<div class="index-container">
-
-    <div class="jumbotron">
-        <div class="index-title">
+<div>
+    <div class="index-title">
         <h1>C a r   I n   N e e d</h1>
-        </div>
+    </div>
         <div class="index-login">
-        <p>Login or Register with:</p>
-        <a href="/login" class="btn btn-default">Local Login</a>
-        <a href="/signup" class="btn btn-default">Local Signup</a>
-        <a href="/profile" class="btn btn-default">Profile</a>
+            <a href="/login" class="btn btn-primary">Local Login</a>
+            <a href="/signup" class="btn btn-primary">Local Signup</a>
+            <a href="/profile" class="btn btn-primary">Profile</a>
         </div>
-    </div>
-
-    <div class="index-text">
-    <h2>So you want to buy a car?</h2>
-    {{!-- <h3>Well, whether you're looking to get a new car within a month or simply scanning the
-        market,
-        figuring out what car you're going to buy next can be a stressful and seemingly impossible task. Lucky for you,
-        Car in Need helps YOU understand what kind of car would best suit you and your needs!</h3> --}}
-    <h3>Thanks for taking our quiz!!! Using the answers you've provided,<br/>we at Car In Need have taken in your answers to determine what we believe to be the best car for you<br/>based on a few key preferences and given lifestyle cues</h3>
-    
-    </div>
+</div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+		</div>
+	</div>
     <div class="row">
-        <div class="col-md-12 text-center">
-            <a href="/question" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Retry the Quiz</a>
+		<div class="col-md-12 text-center">
+            <h2>So you want to buy a car?</h2>
+            <h3>Thanks for taking the time to take our quiz!!! Using the answers you provide,<br/>
+                we at Car In Need use your answers to determine what we believe to be the best car for you<br/>
+                based on a few key preferences and given lifestyle cues</h3>
+		</div>
+	</div>
+</div>
+<div class="row">
+    <div class="col-md-12 index-container">
+        <div class="row">
+		    <div class="col-md-12 text-center">
+                <a href="/question" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Take the Quiz</a>
+		    </div>
+	    </div>
+	    <div class="row">
+		    <div class="col-md-12">
+                <div class="index-answer">
+                    <div>
+                    <h2>Your Best Fit Car is a...</h2>
+                    <h2>{{bestCar.name}}</h2>
+                    <h3>Scroll down to see a few <br/>{{bestCar.name}} ideas!</h3>
+                    </div>
+		        </div>
+	        </div>
+	    <div class="row">
+            {{#each bestCar.images}}
+		    <div class="col-md-6">
+            <img class= "images" src = {{this}}>
+		</div>
+		<div class="col-md-6">
+	</div>
+        {{/each}}
+	        </div>
+            </div>
         </div>
-    </div>
-    
-    <div class="index-answer">
-        <div>
-<h2>Your Best Fit Car is a...</h2>
-    <h2>{{bestCar.name}}</h2>
-    <h3>Scroll down to see a few <br/>{{bestCar.name}} ideas!</h3>
-        </div>
-    
-    </div>
-    <div id = "images">
-    {{#each bestCar.images}}
-        <img class= "images" src = {{this}}>
-    {{/each}}
     </div>
 </div>

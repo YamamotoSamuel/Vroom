@@ -1,104 +1,24 @@
-<div class="profile-container">
+<div class="profile">
 
-    <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> My Profile</h1>
-        <a href="/logout" class="btn btn-warning btn-sm">Logout</a>
-        <a href="/" class="btn btn-warning btn-sm">Home</a>
+<div class="card" style="width: 30rem;">
+        <h1>My Profile</h1>
+  <div class="card-body">
+    <h5 class="card-title">Information:</h5>
+    <div>
+        {{#if user.local.email}}
+            <h6 class="card-subtitle mb-2 text-muted">email: {{user.local.email}}</h6>
+            <a href="/unlink/local" class="btn btn-default">Unlink</a>
+            {{else}}
+            <a href="/connect/local" class="btn btn-default">Connect Local</a>
+            {{/if}}
     </div>
-
-    <div class="row">
-
-        <!-- LOCAL INFORMATION -->
-        <div id="profile-info" class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> My Profile Info</h3>
-
-                {{#if user.local.email }}
-                <h3>
-                    <strong>e-mail</strong>:{{ user.local.email }} <br/>
-                    <strong>Best Car</strong>:{{bestCar.name}}
-                </h3>
-
-
-                <a href="/unlink/local" class="btn btn-default">Unlink</a>
-                {{else}}
-                <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                {{/if}}
-
-            </div>
-        </div>
-
-        <!-- FACEBOOK INFORMATION -->
-        {{!-- <div class="col-sm-6">
-            <div class="well">
-                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3> --}}
-
-                <!-- check if the user has this token (is the user authenticated with this social account) -->
-                {{!-- {{#if user.facebook.token }}
-                <p>
-                    <strong>id</strong>: {{ user.facebook.id }}<br>
-                    <strong>token</strong>: {{ user.facebook.token }}<br>
-                    <strong>email</strong>: {{ user.facebook.email }}<br>
-                    <strong>name</strong>: {{ user.facebook.name }}<br>
-                </p>
-
-                <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
-                {{else}}
-                <a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
-                {{/if}}
-
-            </div>
-        </div>
+    <p class="card-text"><strong>Best car:</strong>{{bestCar.name}}</p>
+    <div class="pro-links">
+    <a href="/question" class="card-link">Retry the Quiz</a>
+    <a href="https://www.cargurus.com" class="card-link">Car Gurus</a>
+    <a href="/" class="card-link">Home</a>
+    <a href="/logout" class="card-link">Logout</a>
     </div>
-    <div class="row"> --}}
-
-        <!-- TWITTER INFORMATION -->
-        {{!-- <div class="col-sm-6">
-            <div class="well">
-                <h3 class="text-info"><span class="fa fa-twitter"></span> Twitter</h3>
-
-                {{#if user.twitter.token }}
-                <p>
-                    <strong>id</strong>: {{ user.twitter.id }}<br>
-                    <strong>token</strong>: {{ user.twitter.token }}<br>
-                    <strong>email</strong>: {{ user.twitter.email }}<br>
-                    <strong>name</strong>: {{ user.twitter.name }}<br>
-                </p>
-
-                <a href="/unlink/twitter" class="btn btn-primary">Unlink</a>
-                {{else}}
-                <a href="/connect/twitter" class="btn btn-primary">Connect Twitter</a>
-                {{/if}}
-
-            </div>
-        </div> --}}
-
-        <!-- GOOGLE INFORMATION -->
-        {{!-- <div class="col-sm-6">
-            <div class="well">
-                <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
-
-                {{#if user.google.token }}
-                <p>
-                    <strong>id</strong>: {{ user.google.id }}<br>
-                    <strong>token</strong>: {{ user.google.token }}<br>
-                    <strong>email</strong>: {{ user.google.email }}<br>
-                    <strong>name</strong>: {{ user.google.name }}<br>
-                </p>
-
-                <a href="/unlink/google" class="btn btn-primary">Unlink</a>
-                {{else}}
-                <a href="/connect/google" class="btn btn-primary">Connect Google</a>
-                {{/if}}
-
-            </div> --}}
-        </div>
-    </div>
-
-
-    <div class="text-center">
-        <a href="/question" class="btn btn-primary btn-sm" id= "retry"> Retry the Questionnare</a>
-        <p>Search for your perfect car at <a href="https://www.cargurus.com">Car Gurus</a>.</p>
-    </div>
-
+  </div>
+</div>
 </div>
